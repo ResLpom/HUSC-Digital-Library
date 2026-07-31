@@ -1,0 +1,294 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --admin-sidebar-width: 240px;
+    --admin-content-width: 960px;
+    --admin-bg: #eef8fd;
+    --admin-dark: #0f172a;
+    --admin-border: #e2e8f0;
+    --admin-text: #0f172a;
+    --admin-muted: #64748b;
+    --admin-blue: #0284c7;
+    --admin-cyan: #06b6d4;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background:
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.12), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.10), transparent 32%),
+        var(--admin-bg);
+    color: var(--admin-text);
+    font-family: Arial, sans-serif;
+}
+
+/* SIDEBAR CHUNG */
+.admin-sidebar {
+    width: var(--admin-sidebar-width) !important;
+    min-height: 100vh;
+    background: var(--admin-dark);
+    color: white;
+    padding: 22px 18px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 999;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-brand {
+    padding: 12px 12px 22px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-brand-text strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 900;
+    color: white;
+}
+
+.admin-brand-text span {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #94a3b8;
+}
+
+.admin-menu-title {
+    margin: 18px 0 10px;
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.admin-nav {
+    display: grid;
+    gap: 8px;
+}
+
+.admin-nav a {
+    min-height: 46px;
+    padding: 0 14px;
+    border-radius: 16px;
+    color: #e2e8f0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 900;
+    transition: 0.22s ease;
+}
+
+.admin-nav a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    text-decoration: none;
+}
+
+.admin-nav a.active {
+    background: rgba(255, 255, 255, 0.13);
+    color: white;
+    border: 1px solid #38bdf8;
+    box-shadow: inset 4px 0 0 #38bdf8;
+}
+
+/* MAIN LAYOUT CHUNG */
+.admin-main,
+.admin-pro-layout {
+    margin-left: var(--admin-sidebar-width) !important;
+    min-height: 100vh;
+    padding: 32px 32px 70px !important;
+    display: block !important;
+    width: auto !important;
+    background: transparent !important;
+}
+
+/* Ẩn sidebar/header cũ nếu trang cũ còn sót */
+.admin-pro-layout > .admin-sidebar,
+.admin-pro-layout aside.admin-sidebar,
+body > aside.admin-sidebar + .admin-pro-layout aside.admin-sidebar {
+    display: none !important;
+}
+
+body .app-header,
+body header.app-header,
+.admin-header,
+.top-header,
+.admin-top-header {
+    display: none !important;
+}
+
+/* Xóa icon cũ */
+.app-brand-icon,
+.admin-brand-icon,
+.page-icon,
+.header-icon {
+    display: none !important;
+}
+
+/* ÉP TẤT CẢ TRANG ADMIN CĂN GIỮA NHƯ DASHBOARD */
+.admin-page,
+.admin-shell,
+.admin-content,
+.admin-container,
+.admin-dashboard,
+.admin-main-content,
+.page-content,
+.main-content,
+.content-wrapper,
+.admin-pro-content {
+    width: 100% !important;
+    max-width: var(--admin-content-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Nếu trang dùng trực tiếp admin-pro-layout làm vùng nội dung */
+.admin-pro-layout > .admin-content,
+.admin-pro-layout > .admin-main,
+.admin-pro-layout > .main-content,
+.admin-pro-layout > .admin-dashboard {
+    max-width: var(--admin-content-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* TOPBAR CHUNG */
+.admin-topbar,
+.page-header,
+.admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.admin-topbar h1,
+.page-header h1,
+.admin-page-header h1 {
+    margin: 0;
+    color: var(--admin-text);
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.admin-topbar p,
+.page-header p,
+.admin-page-header p {
+    margin: 6px 0 0;
+    color: var(--admin-muted);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.admin-actions,
+.page-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.admin-actions a,
+.page-actions a {
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.btn-light {
+    color: #0369a1;
+    background: white;
+    border: 1px solid #bae6fd;
+}
+
+.btn-primary {
+    color: white;
+    background: linear-gradient(135deg, var(--admin-blue), var(--admin-cyan));
+}
+
+/* CARD CHUNG */
+.admin-card,
+.card,
+.panel,
+.content-card {
+    border-radius: 28px;
+    border: 1px solid var(--admin-border);
+    background: white;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.06);
+}
+
+/* TABLE CHUNG */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-wrapper,
+.admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 24px;
+}
+
+/* FIX TRANG DOCUMENTS / EQUIPMENTS CŨ */
+.document-admin-page,
+.equipment-admin-page,
+.borrow-admin-page,
+.user-admin-page,
+.report-admin-page,
+.log-admin-page {
+    width: 100% !important;
+    max-width: var(--admin-content-width) !important;
+    margin: 0 auto !important;
+}
+
+/* MOBILE */
+@media (max-width: 1060px) {
+    .admin-sidebar {
+        position: relative;
+        width: 100% !important;
+        min-height: auto;
+    }
+
+    .admin-main,
+    .admin-pro-layout {
+        margin-left: 0 !important;
+        padding: 16px !important;
+    }
+
+    .admin-page,
+    .admin-shell,
+    .admin-content,
+    .admin-container,
+    .admin-dashboard,
+    .admin-main-content,
+    .page-content,
+    .main-content,
+    .content-wrapper,
+    .admin-pro-content {
+        max-width: 100% !important;
+    }
+
+    .admin-topbar,
+    .page-header,
+    .admin-page-header {
+        flex-direction: column;
+    }
+}
